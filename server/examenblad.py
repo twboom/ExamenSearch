@@ -6,18 +6,24 @@ data = json.load(open("data.json", "r"))
 
 
 def get_subjects(year, level):
-    categories = ["talen", "exacte-vakken", "maatschappijvakken", "kunstvakken-en-lo"]
+    categories = data["categories"]
     subjects_urls = []
     for category in categories:
         url = f"https://www.examenblad.nl/item/{category}/{year}/{level}"
         response = requests.get(url)
         soup = BeautifulSoup(response.text, "html.parser")
         subject_list = soup.find("ul", {"class": "seriekeuze"})
+        if subject_list is None:
+            continue
         links = [link for link in subject_list.find_all("a")]
         for link in links:
+            name = link.text.replace("\n", "").strip().replace(level, "")
+            if "*" in name:
+                continue
             url = f"https://www.examenblad.nl{link.get('href')}"
-            subjects_urls.append(url)
+            subjects_urls.append((name, url))
     return subjects_urls
+
 
 def get_files(url):
     response = requests.get(url)
