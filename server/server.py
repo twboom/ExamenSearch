@@ -1,13 +1,29 @@
 import asyncio
 import websockets
+import json
 
 
-async def echo(websocket, path):
+async def send_message(websocket, data):
+    data = json.dumps(data)
+    await websocket.send(data)
+
+
+async def handle_message(websocket, path):
+    data = {
+        "subject": "CONNECTION",
+        "data": "CONNECTED"
+    }
+    await send_message(websocket, data)
     async for message in websocket:
-        await websocket.send(message)
+        data = json.loads(message)
+        print(data)
+        await send_message(websocket, data)
+
 
 async def main():
-    async with websockets.serve(echo, "localhost", 8765):
+    async with websockets.serve(handle_message, "localhost", 8080):
         await asyncio.Future()
 
-asyncio.run(main())
+
+if __name__ == "__main__":
+    asyncio.run(main())
