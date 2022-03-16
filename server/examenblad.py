@@ -1,7 +1,9 @@
-from ast import Sub
 import json
 import requests
 from bs4 import BeautifulSoup
+
+data = json.load(open("data.json", "r"))
+
 
 def get_subjects(year, level):
     categories = ["talen", "exacte-vakken", "maatschappijvakken", "kunstvakken-en-lo"]
@@ -23,16 +25,24 @@ def get_files(url):
     links = []
     for link in soup.find_all("a", href=True):
         href = link.get("href")
-        if "opgaven" in href and ".pdf" in href:
-            href = link.get("href")
-            links.append(f"https://www.examenblad.nl{href}")
+        for item in data["ignore"]:
+            if item in href:
+                break
+        for keyword in data["keywords"]:
+            if keyword in href and ".pdf" in href:
+                href = link.get("href")
+                links.append(f"https://www.examenblad.nl{href}")
     return links
     
 
 if __name__ == "__main__":
+    complete_files = []
     for year in range(2002, 2020):
         urls = get_subjects(year, "vwo")
         files = []
         for url in urls:
             files.extend(get_files(url))
+        complete_files.extend(files)
         print(f"{year}: {len(files)}")
+    with open("files.json", "w") as f:
+        json.dump(complete_files, f)
