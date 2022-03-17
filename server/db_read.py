@@ -19,20 +19,23 @@ with closing(sqlite3.connect(db_file)) as connection:
 
 
 # Search for a file
-def query(keywords=[], levels="*", subjects="*", years="*", document_types="*", periods="*"):
+def query(keywords=[], levels="*", subjects="*", years="*", document_types="*", periods="*") -> list:
     with closing(sqlite3.connect(db_file)) as connection:
         with closing(connection.cursor()) as cursor:
-            query = """
-                SELECT file_id
-                FROM page
-                WHERE CONTAINS(text_content, {keywords})
-            """
-            data = (
-                keywords
-            )
-            cursor.execute(query)
-            return cursor.fetchall()
+            results = []
+            
+            for keyword in keywords:
+                keyword = str(keyword).lower()
+                query = "SELECT * FROM page WHERE text_content LIKE ?"
+                data = (
+                    f"%{keyword}%",
+                )
+                cursor.execute(query, data)
+                results += cursor.fetchall()
+            return results
 
 
 if __name__ == "__main__":
-    query(keywords=["score"])
+    result = query(keywords=["hart", "lees"])
+    # result = [result[1] for result in result]
+    print(len(result))

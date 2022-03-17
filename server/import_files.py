@@ -7,8 +7,8 @@ from pdf_reader import import_document
 data = json.load(open("data.json", "r"))
 
 
-def import_content():
-    files = fetch_files()
+def import_content(start_year=data["year"]["start"], end_year=data["year"]["end"]):
+    files = fetch_files(start_year, end_year)
     for file in files:
         import_document(file[0], file[1])
 
@@ -36,5 +36,5 @@ def import_files():
 
 
 if __name__ == "__main__":
-    import_files()
-    import_content()
+    # import_files()
+    import_content(start_year=2007)

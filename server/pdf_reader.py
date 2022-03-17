@@ -11,7 +11,11 @@ def import_document(file_id, document_url):
     :param document: The file to read.
     :return: The text content of the file.
     """
-    remote_file = urlopen(Request(document_url)).read()
+    try:
+        remote_file = urlopen(Request(document_url)).read()
+    except:
+        print(f"Error importing {document_url}")
+        return
     memory_file = io.BytesIO(remote_file)
     
     try:

@@ -58,9 +58,13 @@ def new_pages(file_id, page_numbers, text_contents):
 
 
 # Get the data from the database
-def fetch_files():
+def fetch_files(start_year, end_year):
     with closing(sqlite3.connect(db_file)) as connection:
         with closing(connection.cursor()) as cursor:
-            query = "SELECT * FROM file"
-            cursor.execute(query)
+            query = "SELECT * FROM file WHERE year >= ? AND year <= ?"
+            data = (
+                start_year,
+                end_year
+            )
+            cursor.execute(query, data)
             return cursor.fetchall()
