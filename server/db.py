@@ -42,3 +42,25 @@ def new_page(file_id, page_number, text_content):
             )
             cursor.execute(query, data)
             connection.commit()
+
+def new_pages(file_id, page_numbers, text_contents):
+    with closing(sqlite3.connect(db_file)) as connection:
+        with closing(connection.cursor()) as cursor:
+            for page in range(len(page_numbers)):
+                query = "INSERT or IGNORE INTO page (file_id, page_number, text_content) VALUES (?, ?, ?)"
+                data = (
+                    file_id,
+                    page_numbers[page],
+                    text_contents[page]
+                )
+                cursor.execute(query, data)
+            connection.commit()
+
+
+# Get the data from the database
+def fetch_files():
+    with closing(sqlite3.connect(db_file)) as connection:
+        with closing(connection.cursor()) as cursor:
+            query = "SELECT * FROM file"
+            cursor.execute(query)
+            return cursor.fetchall()

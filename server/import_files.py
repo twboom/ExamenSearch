@@ -1,12 +1,19 @@
 import json
 from examenblad import get_subjects, get_files
-from db import new_file
+from db import new_file, fetch_files
+from pdf_reader import import_document
 
 
 data = json.load(open("data.json", "r"))
 
 
-def import_all():
+def import_content():
+    files = fetch_files()
+    for file in files:
+        import_document(file[0], file[1])
+
+
+def import_files():
     start_year = data["year"]["start"]
     end_year = data["year"]["end"]
     levels = data["levels"]
@@ -29,4 +36,5 @@ def import_all():
 
 
 if __name__ == "__main__":
-    import_all()
+    # import_files()
+    import_content()
