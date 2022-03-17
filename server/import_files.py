@@ -36,5 +36,5 @@ def import_files():
 
 
 if __name__ == "__main__":
-    # import_files()
+    import_files()
     import_content()
