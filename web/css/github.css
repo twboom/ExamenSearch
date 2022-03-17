@@ -37,3 +37,8 @@ img#github-link:focus {
         filter: invert(0.3);
     }
 }
+
+div#header.small > div.header-section > a#github > img#github-link {
+    width: 35px;
+    height: 35px;
+}

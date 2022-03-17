@@ -1,3 +1,16 @@
 * {
     font-family: 'Open Sans';
 }
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin-top: 130px;
+}
+
+main.small {
+    margin-top: 50px;
+}
