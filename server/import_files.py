@@ -17,18 +17,16 @@ def import_all():
             for subject in subjects:
                 files = get_files(subject[1])
                 for file in files:
-                    period = file.split("/")[5].split("-")[1]
-                    document_type = file.split("/")[7].split("-")
-                    if len(document_type) > 1:
-                        document_type = document_type[0]
+                    period = file.split("/")[5].split("-")
+                    if len(period) == 2:
+                        period = period[1]
+                    else:
+                        period = period[0]
+                    document_type = file.split("/")[7].split("-")[0]
                     new_file(file, year, subject[0], level, period, document_type)
                     print(f"Imported {year} {level} {subject[0]} {period} {document_type}")
 
 
 
 if __name__ == "__main__":
-    # subjects = get_subjects(2021, "vwo")
-    # files = get_files(subjects[0][1])
-    # [print(file) for file in files]
-
     import_all()

@@ -1,7 +1,7 @@
 {
     "categories": ["talen", "exacte-vakken", "maatschappijvakken", "kunstvakken-en-lo"],
     "levels": ["vwo", "havo", "vmbo-tl", "vmbo-gl", "vmbo-kb", "vmbo-bb"],
-    "keywords": ["opgaven", "correctievoorschrift", "erratum-op-de-opgaven"],
+    "keywords": ["opgaven", "bijlage", "correctievoorschrift", "erratum-op-de-opgaven"],
     "ignore": ["aanvulling-correctievoorschrift"],
     "year": {
         "start": 2002,
