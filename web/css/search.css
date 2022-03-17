@@ -1,0 +1,38 @@
+input#search-field {
+    width: 75%;
+    height: 30px;
+    padding: 0 10px;
+    margin: 0 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background: #fafafa;
+    box-shadow: 0 0 0 1px #ccc;
+    transition: box-shadow 0.2s;
+}
+
+input#search-field:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px #ccc, 0 0 0 2px #aaa;
+}
+
+button#commit-search {
+    width: 25%;
+    height: 32px;
+    padding: 0 10px;
+    margin: 0 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background: #fafafa;
+    box-shadow: 0 0 0 1px #ccc;
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+}
+
+button#commit-search:hover {
+    outline: none;
+    box-shadow: 0 0 0 1px #ccc, 0 0 0 2px #aaa;
+}
