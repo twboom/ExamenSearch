@@ -10,9 +10,12 @@
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/github.css">
     <link rel="stylesheet" href="css/results.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/info.css">
 
     <script defer src="js/header.js"></script>
-    <script src="js/ws.js"></script>
+    <script defer src="js/render.js"></script>
+    <script defer src="js/ws.js"></script>
     <script defer src="js/search.js"></script>
 </head>
 <body>
@@ -34,9 +37,13 @@
     </header>
 
     <main>
-        <div id="info"></div>
+        <div id="info-container">
+            <div id="info"></div>
+        </div>
         <table id="results"></table>
-        <div id="stats-container"></div>
+        <!-- <div id="stats-container"></div> -->
     </main>
+
+    <footer id="stats-container"></footer>
 </body>
 </html>

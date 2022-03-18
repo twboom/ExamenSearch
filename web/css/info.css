@@ -1,0 +1,82 @@
+:root {
+    --error-background: #f9dfdd;
+    --warning-background: #fff4db;
+    --confirmation-background: #e1eddb;
+    --information-background: #d9ebf7;
+
+    --error-fill: #d52b1e;
+    --warning-fill: #ffb612;
+    --confirmation-fill: #39870C;
+    --information-fill: #007CC8;
+
+    --error-text: "X";
+    --warning-text: "!";
+    --confirmation-text: "✓";
+    --information-text: "i";
+}
+
+div#info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    margin: 0 auto;
+}
+
+div#info {
+    width: 600px;
+    min-width: fit-content;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 8px;
+
+    text-align: center;
+
+    background-color: var(--info-background);
+}
+
+div#info > p {
+    font-size: 1.1em;
+}
+
+div#info > p::before {
+    content: var(--icon-text);
+    display: inline-block;
+    text-align: center;
+    font-weight: bolder;
+    color: var(--info-fill);
+    font-size: 1.5em;
+    position: relative;
+    right: 1.5em;
+    top: 0.125em;
+    border: 4px solid var(--info-fill);
+    border-collapse: collapse;
+    border-radius: 50%;
+    padding: 0.1em;
+    width: 1.5em;
+}
+
+/* Type styles */
+div#info.error {
+    --info-background: var(--error-background);
+    --info-fill: var(--error-fill);
+    --icon-text: var(--error-text);
+}
+
+div#info.warning {
+    --info-background: var(--warning-background);
+    --info-fill: var(--warning-fill);
+    --icon-text: var(--warning-text);
+}
+
+div#info.confirmation {
+    --info-background: var(--confirmation-background);
+    --info-fill: var(--confirmation-fill);
+    --icon-text: var(--confirmation-text);
+}
+
+div#info.information {
+    --info-background: var(--information-background);
+    --info-fill: var(--information-fill);
+    --icon-text: var(--information-text);
+}

@@ -1,15 +1,29 @@
 table#results {
     width: 75%;
     margin: 0 auto;
+    border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+    background-color: var(--background-highlight);
+}
+
+td {
+    padding: 8px;
+}
+
+td:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+td:last-child {
+    border-radius: 0 10px 10px 0;
 }
 
 div#stats {
     display: flex;
     justify-content: space-around;
+    align-content: space-around;
     width: 75%;
     margin: 0 auto;
-}
-
-div#info {
-    text-align: center;
 }

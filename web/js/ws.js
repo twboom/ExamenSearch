@@ -1,3 +1,8 @@
+const session = {
+    disconnects: 0,
+    initalized: false
+};
+
 function sendQuery(keywords) {
     query = {
         "keywords": keywords
@@ -12,13 +17,29 @@ function sendQuery(keywords) {
 }
 
 function connectWS(url) {
+    if (session.disconnects === 0) { renderInfo('CONNECTING', false) };
     const socket = new WebSocket(url);
 
     function handleOpen() {
         console.log('CLIENT:', 'WebSocket connection opened');
+        session.disconnects = 0;
+        if (!session.initalized) {
+            renderInfo('READY', false);
+            session.initalized = true;
+        } else {
+            renderInfo('CLEAR', false)
+        }
     }
 
     function handleDisconnect() {
+        session.disconnects++;
+        console.log('CLIENT:', 'WebSocket connection closed');
+        console.log(session.disconnects)
+        if (session.disconnects === 1 && session.initalized) {
+            renderInfo('CONNECTION_LOST', false);
+        } else {
+            renderInfo('CONNECTION_FAILED', false);
+        }
         main()
     }
 
@@ -42,6 +63,7 @@ function connectWS(url) {
 
             case 'ERROR':
                 alert('There was an error: ' + data.data.message);
+                renderInfo('ERROR', false);
                 break;
         }
     }
