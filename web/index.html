@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/github.css">
 
     <script defer src="js/header.js"></script>
+    <script src="js/ws.js"></script>
+    <script defer src="js/search.js"></script>
 </head>
 <body>
     <header>
@@ -20,7 +22,7 @@
             </div>
             <div class="header-section" style="width: 40%">
                 <input type="text" name="search-field" id="search-field">
-                <button id="commit-search" type="submit">Search</button>
+                <button id="search-button" type="submit">Search</button>
             </div>
             <div class="header-section">
                 <a id="github" href="https://github.com/twboom/ExamenSearch">
@@ -31,46 +33,9 @@
     </header>
 
     <main id="main">
-        <p>hallo</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
-        <p>laksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjllaksdjflkasjdlkfjl</p>
+        <div id="results">
+            
+        </div>
     </main>
 </body>
 </html>

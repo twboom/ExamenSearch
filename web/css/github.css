@@ -10,13 +10,12 @@ a#github:focus {
 img#github-link {
     width: 50px;
     height: 50px;
-    filter: invert(1);
-    transition: filter 0.2s, transform 0.2s;
+    transition: filter 0.2s, transform 0.2s, width 0.2s, height 0.2s;
     transform: translateY(-.5px);
 }
 
 img#github-link:hover {
-    filter: invert(0.7);
+    filter: invert(0.3);
 }
 
 img#github-link:active, img#github-link:focus {
@@ -30,11 +29,11 @@ img#github-link:focus {
 
 @media (prefers-color-scheme: dark) {
     img#github-link {
-        filter: invert(0);
+        filter: invert(1);
     }
 
     img#github-link:hover {
-        filter: invert(0.3);
+        filter: invert(0.7);
     }
 }
 

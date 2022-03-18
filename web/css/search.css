@@ -17,7 +17,7 @@ input#search-field:focus {
     box-shadow: 0 0 0 1px #ccc, 0 0 0 2px #aaa;
 }
 
-button#commit-search {
+button#search-button {
     width: 25%;
     height: 32px;
     padding: 0 10px;
@@ -32,7 +32,7 @@ button#commit-search {
     cursor: pointer;
 }
 
-button#commit-search:hover {
+button#search-button:hover {
     outline: none;
     box-shadow: 0 0 0 1px #ccc, 0 0 0 2px #aaa;
 }

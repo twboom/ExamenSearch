@@ -52,6 +52,7 @@ async def handle_connection(websocket, path):
         "subject": "CONNECTION",
         "data": "CONNECTED"
     }
+    print("New connection")
     await send_message(websocket, data)
     async for message in websocket:
         await handle_message(websocket, message)
