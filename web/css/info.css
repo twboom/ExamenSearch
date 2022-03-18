@@ -37,6 +37,7 @@ div#info {
 
 div#info > p {
     font-size: 1.1em;
+    color: black;
 }
 
 div#info > p::before {

@@ -4,6 +4,7 @@
     --background: #ffffff;
     --header-background: #539be7;
     --font-color: #000;
+    --invert-color: #fff;
 
     --background-highlight: #e0efff;
 }
@@ -13,6 +14,7 @@
         --background: #1d1f21;
         --header-background: #2b639e;
         --font-color: #fff;
+        --invert-color: #000
 
         --background-highlight: #232938;
     }
