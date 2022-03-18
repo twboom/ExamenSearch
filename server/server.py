@@ -13,7 +13,7 @@ async def send_message(websocket, data):
 async def handle_query(websocket, data):
     data = data["data"]
     if not "keywords in data":
-        send_message(websocket, {
+        await send_message(websocket, {
             "subject": "ERROR",
             "data": "No keywords found on 'data' attribute"
         })
