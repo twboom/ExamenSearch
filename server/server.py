@@ -18,11 +18,19 @@ async def handle_query(websocket, data):
             "data": "No keywords found on 'data' attribute"
         })
     
+    await send_message(websocket, {
+        "subject": "QUERY_LOADING",
+    })
+
     keywords = data["keywords"]
     results = search(keywords=keywords)
 
     await send_message(websocket, {
-        "subject": "QUERY_RESPONSE",
+        "subject": "QUERY_SENDING",
+    })
+
+    await send_message(websocket, {
+        "subject": "QUERY_RESULTS",
         "data": {
             "total_results": len(results),
             "total_files": get_total_files(),

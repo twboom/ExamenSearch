@@ -15,7 +15,7 @@ function connectWS(url) {
     const socket = new WebSocket(url);
 
     function handleOpen() {
-        console.log('WebSocket connection opened');
+        console.log('CLIENT:', 'WebSocket connection opened');
     }
 
     function handleDisconnect() {
@@ -24,8 +24,25 @@ function connectWS(url) {
 
     function handleMessage(evt) {
         const data = JSON.parse(evt.data);
-        if (data.subject === 'QUERY_RESPONSE') {
-            renderResults(data.data);
+
+        console.log('SERVER:', data);
+        
+        switch(data.subject) {
+            case 'QUERY_RESULTS':
+                renderResults(data.data);
+                break;
+            
+            case 'QUERY_LOADING':
+                renderInfo('LOADING');
+                break;
+
+            case 'QUERY_SENDING':
+                renderInfo('SENDING');	
+                break;
+
+            case 'ERROR':
+                alert('There was an error: ' + data.data.message);
+                break;
         }
     }
 
