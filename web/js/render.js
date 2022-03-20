@@ -59,7 +59,7 @@ function renderInfo(subject, clear=true) {
 
         case 'ERROR':
             info.innerText = 'Ojee, er is iets misgegaan...';
-            container.classList.add('information');
+            container.classList.add('error');
             break;
 
         case 'NO_RESULTS':

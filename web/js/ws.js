@@ -62,7 +62,7 @@ function connectWS(url) {
                 break;
 
             case 'ERROR':
-                alert('There was an error: ' + data.data.message);
+                console.error('There was an server error: ' + data.data.message);
                 renderInfo('ERROR', false);
                 break;
         }
