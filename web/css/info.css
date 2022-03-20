@@ -9,10 +9,11 @@
     --confirmation-fill: #39870C;
     --information-fill: #007CC8;
 
-    --error-text: "X";
-    --warning-text: "!";
-    --confirmation-text: "✓";
-    --information-text: "i";
+    --error-icon: url("/web/assets/icons/error.svg");
+    --warning-icon: url("/web/assets/icons/warning.svg");
+    --confirmation-icon: url("/web/assets/icons/confirmation.svg");
+    --information-icon: url("/web/assets/icons/information.svg");
+    --loading-icon: url("/web/assets/icons/loading.svg");
 }
 
 div#info-container {
@@ -26,58 +27,86 @@ div#info-container {
 div#info {
     width: 600px;
     min-width: fit-content;
-    padding: 1em;
+    height: 100px;
     margin: 1em;
-    border-radius: 8px;
+    padding-left: 16px;
+    border-radius: 4px;
 
-    text-align: center;
+    border-left: 4px solid var(--icon-fill);
 
-    background-color: var(--info-background);
+    text-align: left;
+
+    background-color: var(--icon-background);
 }
 
 div#info > p {
     font-size: 1.1em;
     color: black;
+    position: relative;
+    top: 22.5%;
+    left: 80px;
 }
 
 div#info > p::before {
-    content: var(--icon-text);
+    content: "";
+    background-image: var(--icon-file);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
     display: inline-block;
-    text-align: center;
-    font-weight: bolder;
-    color: var(--info-fill);
     font-size: 1.5em;
-    position: relative;
-    right: 1.5em;
-    top: 0.125em;
-    border: 4px solid var(--info-fill);
-    border-collapse: collapse;
+    position: absolute;
+    left: -3.125em;
+    top: -1em;
+    border: 5px solid var(--icon-fill);
     border-radius: 50%;
-    padding: 0.1em;
     width: 1.5em;
+    height: 1.5em;
+    padding: 0.5em;
+    transform: scale(0.8);
 }
 
 /* Type styles */
 div#info.error {
-    --info-background: var(--error-background);
-    --info-fill: var(--error-fill);
-    --icon-text: var(--error-text);
+    --icon-background: var(--error-background);
+    --icon-fill: var(--error-fill);
+    --icon-file: var(--error-icon);
 }
 
 div#info.warning {
-    --info-background: var(--warning-background);
-    --info-fill: var(--warning-fill);
-    --icon-text: var(--warning-text);
+    --icon-background: var(--warning-background);
+    --icon-fill: var(--warning-fill);
+    --icon-file: var(--warning-icon);
 }
 
 div#info.confirmation {
-    --info-background: var(--confirmation-background);
-    --info-fill: var(--confirmation-fill);
-    --icon-text: var(--confirmation-text);
+    --icon-background: var(--confirmation-background);
+    --icon-fill: var(--confirmation-fill);
+    --icon-file: var(--confirmation-icon);
 }
 
 div#info.information {
-    --info-background: var(--information-background);
-    --info-fill: var(--information-fill);
-    --icon-text: var(--information-text);
+    --icon-background: var(--information-background);
+    --icon-fill: var(--information-fill);
+    --icon-file: var(--information-icon);
+}
+
+div#info.loading {
+    --icon-background: var(--information-background);
+    --icon-fill: var(--information-fill);
+    --icon-file: var(--loading-icon);
+}
+
+div#info.loading > p::before {
+    color: #00000000;
+    animation: spinner 0.8s infinite;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg) scale(0.8);
+    }
+    100% {
+        transform: rotate(180deg) scale(0.8);
+    }
 }

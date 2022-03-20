@@ -49,12 +49,12 @@ function renderInfo(subject, clear=true) {
     switch(subject) {
         case 'LOADING':
             info.innerText = 'Moment, we zijn de resultaten aan het verzamelen...';
-            container.classList.add('information');
+            container.classList.add('loading');
             break;
 
         case 'SENDING':
             info.innerText = 'Moment, we halen de resultaten op...'
-            container.classList.add('information');
+            container.classList.add('loading');
             break;
 
         case 'ERROR':
