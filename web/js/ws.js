@@ -33,12 +33,12 @@ function connectWS(url) {
 
     function handleDisconnect() {
         session.disconnects++;
-        console.log('CLIENT:', 'WebSocket connection closed');
-        console.log(session.disconnects)
         if (session.disconnects === 1 && session.initalized) {
             renderInfo('CONNECTION_LOST', false);
+            console.log('CLIENT:', 'WebSocket connection closed');
         } else {
             renderInfo('CONNECTION_FAILED', false);
+            console.log('CLIENT:', 'WebSocket connection failed');
         }
         main()
     }
