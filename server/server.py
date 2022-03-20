@@ -23,7 +23,7 @@ async def handle_query(websocket, data):
     })
 
     keywords = data["keywords"]
-    results = search(keywords=keywords)
+    results = await search(keywords)
 
     await send_message(websocket, {
         "subject": "QUERY_SENDING",

@@ -1,6 +1,7 @@
 import sqlite3
 from contextlib import closing
 import json
+import asyncio
 
 
 db_file = "db.sqlite3"
@@ -18,41 +19,43 @@ with closing(sqlite3.connect(db_file)) as connection:
                 cursor.execute(statement)
 
 
+# Asynchronous  fetchall query
+async def fetchall_async(query, data):
+    with closing(sqlite3.connect(db_file, check_same_thread=False)) as connection:
+        loop = asyncio.get_event_loop()
+        return await loop.run_in_executor(
+            None, lambda: connection.cursor().execute(query, data).fetchall()
+        )
+
+
 # Search for a file
-def query(keywords=[]) -> list:
-    with closing(sqlite3.connect(db_file)) as connection:
-        with closing(connection.cursor()) as cursor:
-            query = "SELECT * FROM page"
-
-            data = []
-            for keyword in keywords:
-                data.append(f"%{keyword}%")
-                if keywords.index(keyword) == 0:
-                    query += " WHERE text_content LIKE ?"
-                    continue
-                query += " OR text_content LIKE ?"
-
-            data = tuple(data)
-            cursor.execute(query, data)
-            return cursor.fetchall()
+async def query(keywords=[]) -> list:
+    query = "SELECT * FROM page"
+    data = []
+    for keyword in keywords:
+        data.append(f"%{keyword}%")
+        if keywords.index(keyword) == 0:
+            query += " WHERE text_content LIKE ?"
+            continue
+        query += " OR text_content LIKE ?"
+    data = tuple(data)
+    return await fetchall_async(query, data)
 
 
-def get_files(page_list=[]):
-    with closing(sqlite3.connect(db_file)) as connection:
-        with closing(connection.cursor()) as cursor:
-            files = []
-            for page in page_list:
-                file_id = page[1]
-                query = "SELECT * FROM file WHERE id = ?"
-                data = (file_id,)
-                cursor.execute(query, data)
-                files += cursor.fetchall()
-            return files
+async def get_files(page_list=[]):
+    files = []
+    for page in page_list:
+        file_id = page[1]
+        query = "SELECT * FROM file WHERE id = ?"
+        data = (file_id,)
+        files += await fetchall_async(query, data)
+    return files
+            
 
 
-def search(keywords=[]) -> list:
-    query_results = query(keywords=keywords)
-    files = get_files(page_list=query_results)
+async def search(keywords) -> list:
+    query_results = await query(keywords=keywords)
+    files = await get_files(page_list=query_results)
 
     search_result = []
     for qr in query_results:
